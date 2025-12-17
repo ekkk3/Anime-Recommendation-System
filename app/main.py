@@ -5,7 +5,8 @@ from pathlib import Path
 import sys
 import time
 
-sys.path.append(str(Path(__file__).parent))
+ROOT_DIR = Path(__file__).resolve().parent.parent
+sys.path.append(str(ROOT_DIR))
 
 from src.models.content_based import ContentBasedRecommender
 from src.models.collaborative import CollaborativeFilteringRecommender
