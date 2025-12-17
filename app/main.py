@@ -5,18 +5,7 @@ from pathlib import Path
 import sys
 import time
 
-# --- SỬA LỖI IMPORT TẠI ĐÂY ---
-# Lấy đường dẫn tuyệt đối của thư mục chứa file main.py (thư mục app)
-current_dir = Path(__file__).resolve().parent
-# Lấy đường dẫn thư mục gốc của dự án (thư mục chứa app/ và src/)
-root_dir = current_dir.parent
-
-# Thêm cả hai vào sys.path để đảm bảo tìm thấy các module
-if str(current_dir) not in sys.path:
-    sys.path.append(str(current_dir))
-if str(root_dir) not in sys.path:
-    sys.path.append(str(root_dir))
-# ------------------------------
+sys.path.append(str(Path(__file__).parent))
 
 from src.models.content_based import ContentBasedRecommender
 from src.models.collaborative import CollaborativeFilteringRecommender
