@@ -1,0 +1,138 @@
+{
+    "content_based": {
+        "model_type": "Content-Based",
+        "algorithm": "TF-IDF + Cosine Similarity",
+        "description": "TF-IDF Vectorization with Cosine Similarity Matching",
+        "coverage": 0.29084380610412924,
+        "diversity": 0.5487887284956136,
+        "avg_similarity": 0.45121127150438645,
+        "speed_rating": "Ultra Fast",
+        "speed_emoji": "⚡⚡⚡",
+        "pros": [
+            "No cold-start for items",
+            "Explainable recommendations",
+            "Fast inference time",
+            "Works without user data"
+        ],
+        "cons": [
+            "Limited diversity",
+            "Over-specialization risk",
+            "Cannot discover hidden patterns",
+            "Depends on item metadata quality"
+        ],
+        "use_cases": [
+            "New users without history",
+            "Similar anime discovery",
+            "Genre-based exploration",
+            "Quick recommendations"
+        ],
+        "best_for": "Similar anime discovery and new users"
+    },
+    "collaborative_filtering": {
+        "model_type": "Collaborative Filtering",
+        "algorithm": "SVD (Singular Value Decomposition)",
+        "description": "SVD Matrix Factorization on User-Item Interactions",
+        "rmse": 1.134000498678428,
+        "mae": 0.8451201724399767,
+        "precision_at_10": 0.810166387405993,
+        "recall_at_10": 0.5610433354317228,
+        "f1_at_10": 0.6629743717164741,
+        "coverage": 0.08402154398563734,
+        "diversity": 0.71,
+        "speed_rating": "Fast",
+        "speed_emoji": "⚡⚡",
+        "pros": [
+            "Discovers hidden patterns",
+            "High prediction accuracy",
+            "Personalized recommendations",
+            "Learns from user behavior"
+        ],
+        "cons": [
+            "Cold-start problem for new users/items",
+            "Requires sufficient rating history",
+            "Computational complexity for large datasets",
+            "Less explainable than content-based"
+        ],
+        "use_cases": [
+            "Active users with rating history",
+            "Personalized recommendations",
+            "Discover unexpected anime",
+            "User-based filtering"
+        ],
+        "best_for": "Personalized recommendations for active users"
+    },
+    "hybrid": {
+        "model_type": "Hybrid",
+        "algorithm": "Weighted Combination (CB + CF)",
+        "description": "Weighted combination: Content-Based (40%) + Collaborative Filtering (60%)",
+        "content_weight": 0.4,
+        "collaborative_weight": 0.6,
+        "strategy": "weighted",
+        "rmse": 1.0773004737445067,
+        "mae": 0.8113153655423776,
+        "precision_at_10": 0.8749796983984724,
+        "recall_at_10": 0.6003163689119434,
+        "f1_at_10": 0.7120803031378486,
+        "coverage": 0.18743267504488328,
+        "diversity": 0.6293943642478068,
+        "speed_rating": "Fast",
+        "speed_emoji": "⚡⚡",
+        "pros": [
+            "Best of both worlds",
+            "Balanced recommendations",
+            "Flexible weight tuning",
+            "Mitigates individual weaknesses"
+        ],
+        "cons": [
+            "More complex implementation",
+            "Requires tuning weights",
+            "Slightly slower than individual models",
+            "Needs both models trained"
+        ],
+        "use_cases": [
+            "General purpose recommendations",
+            "All user types",
+            "Production deployments",
+            "Optimal performance"
+        ],
+        "best_for": "Best overall performance for all scenarios"
+    },
+    "summary": {
+        "best_rmse": {
+            "model": "Hybrid",
+            "value": 1.0773004737445067
+        },
+        "best_mae": {
+            "model": "Hybrid",
+            "value": 0.8113153655423776
+        },
+        "best_precision": {
+            "model": "Hybrid",
+            "value": 0.8749796983984724
+        },
+        "best_recall": {
+            "model": "Hybrid",
+            "value": 0.6003163689119434
+        },
+        "best_coverage": {
+            "model": "Content-Based",
+            "value": 0.29084380610412924
+        },
+        "best_diversity": {
+            "model": "Collaborative Filtering",
+            "value": 0.71
+        },
+        "fastest": {
+            "model": "Content-Based",
+            "rating": "Ultra Fast"
+        },
+        "overall_recommendation": "Hybrid model provides the best balance of accuracy, coverage, and diversity"
+    },
+    "metadata": {
+        "total_anime": 2785,
+        "total_ratings": 4772052,
+        "evaluation_date": "2025-12-16T15:38:50.605729",
+        "test_size": 0.2,
+        "rating_threshold": 7.0
+    }
+}
